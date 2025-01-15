@@ -1,0 +1,56 @@
+# Unity generated folders
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+
+# Visual Studio and Rider generated files
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+
+# IDE-specific folders
+.idea/
+.vscode/
+
+# Unity cache and build artifacts
+*.pidb.meta
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity-generated asset files
+*.meta
+
+# Crash and error logs
+sysinfo.txt
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# JetBrains Rider project settings
+.idea/
+*.iml
+
+# Built application files
+*.apk
+*.unitypackage
+*.aab
+
+# Additional folders to consider
+[Bb]in/
+Artifacts/
+*.log
