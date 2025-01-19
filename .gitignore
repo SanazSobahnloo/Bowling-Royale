@@ -22,6 +22,10 @@
 # IDE-specific folders
 .idea/
 .vscode/
+.vs/
+*.csproj
+*.sln
+*.userprefs
 
 # Unity cache and build artifacts
 *.pidb.meta
