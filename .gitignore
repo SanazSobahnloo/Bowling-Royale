@@ -36,7 +36,6 @@
 *.VC.db
 
 # Unity-generated asset files
-*.meta
 
 # Crash and error logs
 sysinfo.txt
