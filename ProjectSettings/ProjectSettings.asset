@@ -846,11 +846,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 1e5f00cf-a33f-4f6e-80a0-aecd95a47bd1
+  cloudProjectId: cd83779e-2c17-44a9-bea8-f19dd5fee135
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: Bowling-Royale
-  organizationId: cnzsg1
+  organizationId: habiballahizahra11
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
