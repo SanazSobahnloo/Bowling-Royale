@@ -1,6 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+//using System.Diagnostics;
+
+//using System.Diagnostics;
+
+//using System.Diagnostics;
 using UnityEngine;
 
 public class BowlingPinManager : MonoBehaviour
@@ -26,8 +31,9 @@ public class BowlingPinManager : MonoBehaviour
                 if (pinCount <= 10)
                 {
                     Vector3 position = startPosition + new Vector3(column * pinSpacing - (row * pinSpacing / 2), 0,  row * pinSpacing);
-                    Instantiate(pinPrefab, position, pinPrefab.transform.rotation);
-                    pinCount++;
+                    GameObject pin =Instantiate(pinPrefab, position, Quaternion.Euler(0, 0, 0));
+                    pin.transform.rotation = Quaternion.Euler(0, 0, 0);
+                  pinCount++;
                 }
             }
 
