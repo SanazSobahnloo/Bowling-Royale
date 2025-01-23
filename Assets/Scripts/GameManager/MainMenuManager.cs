@@ -7,4 +7,8 @@ public class MainMenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("Level1");
     }
+    public void LoadLevels()
+    {
+        SceneManager.LoadScene("Levels");
+    }
 }
