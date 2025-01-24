@@ -1,13 +1,15 @@
 using UnityEngine;
 using System.Collections;
+//using System.Diagnostics;
 
 
 
 public class BallMovementController : MonoBehaviour
 {
     public ResetBall resetBall;
+    public static BallMovementController Instance;
 
-    [SerializeField] private GameObject ballResetPosition;
+   [SerializeField] private GameObject ballResetPosition;
     [SerializeField] int maxThrows = 2;
     private int currentThrow = 0;
     private Vector3 ballPosition;
@@ -18,6 +20,12 @@ public class BallMovementController : MonoBehaviour
 
     public float forceMultiplier = 10f; // Adjust the force applied to the ball
     private Rigidbody _rigidbody;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
 
     void Start()
     {
@@ -79,7 +87,7 @@ public class BallMovementController : MonoBehaviour
     }
 
     // Launch the ball based on drag input
-    private void LaunchBall()
+   private void LaunchBall()
     {
         if (maxThrows > currentThrow)
         {
@@ -89,26 +97,55 @@ public class BallMovementController : MonoBehaviour
             _rigidbody.AddForce(new Vector3(direction.x, 0, direction.y) * distance * forceMultiplier); // Apply force
 
             currentThrow++;
-            
 
+            StartCoroutine(WaitForBallToStop());
+
+            //if (BallMovementController.Instance.ShowCurrentThrow() >= 2)
+            //{
+            //    GameManager.Instance.CheckGameResult(ScoreManager.Instance.ShowScore(), 10); // ????
+            //}
 
         }
 
     }
 
 
+
+    private IEnumerator WaitForBallToStop()
+    {
+        // ??? ?? ????? ?? ???? ??? ????? ?? ???
+        while (ballPosition.z < ballResetPosition.transform.position.z)
+        {
+            yield return null; // ??? ???? ?? ????
+        }
+
+        // ????? ????? ???? ?? ?? ???? ???
+        CheckGameStatus();
+    }
+
+
+
+    public int ShowCurrentThrow()
+    {
+      return  currentThrow;
+
+    }
+
+
     void EnableNextThrow()
     {
+
         if (maxThrows > currentThrow)
         {
-
             if (ballPosition.z > ballResetPosition.transform.position.z)
             {
-
                 Invoke("CallResetBallPosition", 3.0f);
             }
-
-
+        }
+        else
+        {
+            // ???? ???? ??? ???? ???? ?? ?????? ??? ????
+            Debug.Log("Game Over. No more throws left.");
         }
 
     }
@@ -123,5 +160,27 @@ public class BallMovementController : MonoBehaviour
             //PinFallController.Instance.RemovePin();     // Call Method to remove the pin
              CameraCollisionController.Instance.SwitchToMainCamera(); // Call Switch To MainCamera Method
 
+    }
+
+    private void CheckGameStatus()
+    {
+        // ??? ???? ???????? ????? ??? ???
+        if (currentThrow >= maxThrows)
+        {
+            // ????? ?????? ?? ????? ??????? ??????????
+            int score = ScoreManager.Instance.ShowScore();
+
+            // ????: ??? ?????? ????? ?? ?? ????? ???? ????
+            if (score >= 10) // ?????? ???? ???? ???? ???
+            {
+                Debug.Log("Player Wins!");
+                GameManager.Instance.CheckGameResult(score, 10); // ???? ?? ?? ????? ???????
+            }
+            else
+            {
+                Debug.Log("Player Loses!");
+                GameManager.Instance.CheckGameResult(score, 10); // ???? ?? ?? ????? ???????
+            }
+        }
     }
 }

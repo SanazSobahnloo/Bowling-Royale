@@ -1,30 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
+//using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-   
-    //{
-        //    Instance = this;
-    //}
 
-    public void GameOver() 
+    private void Awake()
     {
-    
-    
+            Instance = this;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void CheckGameResult(int playerScore, int maxScore)
     {
-        
+        if (playerScore >= maxScore)
+        {
+            PlayerPrefs.SetInt("Score", playerScore); ;
+            PlayerPrefs.SetString("GameResult", "You Win!");
+            PlayerPrefs.Save();
+            SceneManager.LoadScene("Results"); // ?? ???? ????? ???
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Score", playerScore);
+            PlayerPrefs.SetString("GameResult", "You Lose!");
+            PlayerPrefs.Save();
+            SceneManager.LoadScene("Results");
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private bool AllThrowsUsed()
     {
-        
+        // Implement logic to check if the player has used all allowed throws
+        return BallMovementController.Instance.ShowCurrentThrow() >= 2; // Example for max 2 throws
+    }
+
+    private void LoadResultScene()
+    {
+        SceneManager.LoadScene("Results"); ; // Replace with the name of your result scene
     }
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+//using System.Diagnostics;
 
 public class PinFallController : MonoBehaviour
 {
@@ -10,38 +11,63 @@ public class PinFallController : MonoBehaviour
 
     public static PinFallController Instance;
 
-    private void Awake()
-    {
-        Instance = this;
-    }
+    //private void Awake()
+    //{
+    //    Instance = this;
+    //}
 
     void Start()
     {
 
-        if (scoreManager == null)
-        {
-            scoreManager = FindObjectOfType<ScoreManager>();
-        }
+        //if (scoreManager == null)
+        //{
+        //    scoreManager = FindObjectOfType<ScoreManager>();
+        //}
     }
     void Update()
     {
-        if (!isPinFall && Vector3.Dot(transform.up, Vector3.up) < 0.7f) // Checks if the pin has fallen by comparing its vertical alignment.
+        //    if (!isPinFall && Vector3.Dot(transform.up, Vector3.up) < 0.7f) // Checks if the pin has fallen by comparing its vertical alignment.
+        //    {
+        //        scoreManager.AddScore(1);    
+        //        isPinFall = true;
+        //        Invoke("RemovePin", 3.0f);
+
+        //    }
+
+        // ??? ??? ?????
+        if (!isPinFall && Vector3.Dot(transform.up, Vector3.up) < 0.7f)
         {
-            scoreManager.AddScore(1);    
+            Debug.Log("Pin has fallen!"); // ???? ???? ???? ?? ????
             isPinFall = true;
-            Invoke("RemovePin", 3.0f);
 
+            // ??? ??????? ScoreManager ?? ?? ???? ????
+            if (ScoreManager.Instance != null)
+            {
+                ScoreManager.Instance.AddScore(1); // ?????? ????? ??
+            }
+            else
+            {
+               Debug.LogWarning("ScoreManager is missing!");
+            }
+
+             Invoke("RemovePin", 3.0f); // ??? ?? ??? ??
         }
-
+        
+        
+        
     }
 
     void RemovePin()
     {
-        if (isPinFall)
-        {
-                Destroy(gameObject);
-        }
-    
+    //if (isPinFall)
+    //{
+    //        Destroy(gameObject);
+    //}
+
+
+
+    Debug.Log("Removing pin...");
+    Destroy(gameObject); // ??? ??? ???
     }
 
 }
