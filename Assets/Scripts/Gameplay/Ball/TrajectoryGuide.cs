@@ -4,14 +4,25 @@ using UnityEngine;
 
 public class TrajectoryGuide : MonoBehaviour
 {
-    public LineRenderer lineRenderer;
-    public Transform ball;
-    public float sensitivity = 0.3f;
+    [SerializeField] LineRenderer lineRenderer;
 
-    public float lineLength = 5f;
+    [SerializeField]  Camera customCamera;
+    [SerializeField] Transform ball;
+    [SerializeField] float sensitivity = 0.3f;
+
+    [SerializeField] float lineLength = 5f;
     private Vector3 dragStartPos;
     private Vector3 smoothDirection= Vector3.zero;
     private bool isDragging = false;
+
+    private void Start()
+    {
+        Camera mainCamera = Camera.main;
+        if (mainCamera != null)
+        {
+            mainCamera.gameObject.SetActive(false);
+        }
+    }
 
     void Update()
     {
@@ -49,8 +60,9 @@ public class TrajectoryGuide : MonoBehaviour
     Vector3 GetMouseWorldPosition()
     {
         Vector3 mousePos = Input.mousePosition;
-        mousePos.z = Camera.main.WorldToScreenPoint(ball.position).z;
-        Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
+        mousePos.z = customCamera.WorldToScreenPoint(ball.position).z;
+        Vector3 worldPos = customCamera.ScreenToWorldPoint(mousePos);
+
         return new Vector3(worldPos.x, ball.position.y, worldPos.z);
     }
 

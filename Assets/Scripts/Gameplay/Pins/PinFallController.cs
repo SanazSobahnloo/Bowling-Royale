@@ -9,6 +9,10 @@ public class PinFallController : MonoBehaviour
     private bool isPinFall = false;
 
 
+    public AudioSource audioSource;
+    public AudioClip pinFallSound;  
+
+
     public static PinFallController Instance;
 
     //private void Awake()
@@ -34,27 +38,38 @@ public class PinFallController : MonoBehaviour
 
         //    }
 
-        // ??? ??? ?????
+        
         if (!isPinFall && Vector3.Dot(transform.up, Vector3.up) < 0.7f)
         {
-            Debug.Log("Pin has fallen!"); // ???? ???? ???? ?? ????
+            Debug.Log("Pin has fallen!"); 
             isPinFall = true;
 
-            // ??? ??????? ScoreManager ?? ?? ???? ????
+
             if (ScoreManager.Instance != null)
             {
-                ScoreManager.Instance.AddScore(1); // ?????? ????? ??
+                ScoreManager.Instance.AddScore(1);
             }
             else
             {
-               Debug.LogWarning("ScoreManager is missing!");
+                Debug.LogWarning("ScoreManager is missing!");
             }
 
-             Invoke("RemovePin", 3.0f); // ??? ?? ??? ??
+             Invoke("RemovePin", 3.0f); 
         }
         
         
         
+    }
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+       
+        if (collision.gameObject.CompareTag("Ball"))
+        {
+          
+            audioSource.PlayOneShot(pinFallSound);
+        }
     }
 
     void RemovePin()
@@ -67,7 +82,7 @@ public class PinFallController : MonoBehaviour
 
 
     Debug.Log("Removing pin...");
-    Destroy(gameObject); // ??? ??? ???
+    Destroy(gameObject);
     }
 
 }

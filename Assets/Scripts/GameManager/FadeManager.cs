@@ -23,7 +23,7 @@ public class FadeManager : MonoBehaviour
 
         // Play Cinemachine camera animation
         cinemachineCamera.Priority = 10; // Ensure Cinemachine is active
-        yield return new WaitForSeconds(5.5f); // Wait for Cinemachine animation to finish (adjust this as needed)
+        yield return new WaitForSeconds(2f); // Wait for Cinemachine animation to finish (adjust this as needed)
 
         // Fade out to black
         yield return StartCoroutine(FadeOut());
