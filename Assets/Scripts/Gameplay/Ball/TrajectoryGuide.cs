@@ -59,11 +59,24 @@ public class TrajectoryGuide : MonoBehaviour
 
     Vector3 GetMouseWorldPosition()
     {
-        Vector3 mousePos = Input.mousePosition;
-        mousePos.z = customCamera.WorldToScreenPoint(ball.position).z;
-        Vector3 worldPos = customCamera.ScreenToWorldPoint(mousePos);
+        //    Vector3 mousePos = Input.mousePosition;
+        //    mousePos.z = customCamera.WorldToScreenPoint(ball.position).z;
+        //    Vector3 worldPos = customCamera.ScreenToWorldPoint(mousePos);
 
-        return new Vector3(worldPos.x, ball.position.y, worldPos.z);
+        //    return new Vector3(worldPos.x, ball.position.y, worldPos.z);
+
+        Vector3 mousePos = Input.mousePosition;
+
+        if (customCamera != null)
+        {
+            mousePos.z = customCamera.WorldToScreenPoint(ball.position).z;
+            Vector3 worldPos = customCamera.ScreenToWorldPoint(mousePos);
+
+            return new Vector3(worldPos.x, worldPos.y, worldPos.z);
+        }
+
+        Debug.LogWarning("Custom camera is not assigned!");
+        return Vector3.zero;
     }
 
 }
