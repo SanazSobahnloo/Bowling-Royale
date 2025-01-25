@@ -33,4 +33,8 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+    public void LoadLevels()
+    {
+        SceneManager.LoadScene("Levels");
+    }
 }
