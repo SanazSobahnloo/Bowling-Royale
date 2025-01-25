@@ -20,7 +20,7 @@ public class TrajectoryGuide : MonoBehaviour
         Camera mainCamera = Camera.main;
         if (mainCamera != null)
         {
-            mainCamera.gameObject.SetActive(false);
+            //mainCamera.gameObject.SetActive(false);
         }
     }
 

@@ -17,14 +17,14 @@ public class GameManager : MonoBehaviour
         if (playerScore >= maxScore)
         {
             PlayerPrefs.SetInt("Score", playerScore); ;
-            PlayerPrefs.SetString("GameResult", "You Win!");
+            PlayerPrefs.SetString("GameResult", "Strike, great job!");
             PlayerPrefs.Save();
             SceneManager.LoadScene("Results"); // ?? ???? ????? ???
         }
         else
         {
             PlayerPrefs.SetInt("Score", playerScore);
-            PlayerPrefs.SetString("GameResult", "You Lose!");
+            PlayerPrefs.SetString("GameResult", "Your score");
             PlayerPrefs.Save();
             SceneManager.LoadScene("Results");
         }
