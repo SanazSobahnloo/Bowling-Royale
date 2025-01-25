@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelManager : MonoBehaviour     
+public class LevelManager : MonoBehaviour
 
 {
     public static LevelManager instance;
@@ -28,5 +28,9 @@ public class LevelManager : MonoBehaviour
     public void LoadLevel4()
     {
         SceneManager.LoadScene("Level4");
+    }
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
