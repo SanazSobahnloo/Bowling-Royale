@@ -301,7 +301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pinPrefab: {fileID: 8623519028121907762, guid: cacc25a9cee96d846af2e928ed284713, type: 3}
   startPosition: {x: 18.8, y: 0.022, z: -3.27}
-  pinSpacing: 0.35
+  pinSpacing: 0.3
 --- !u!4 &261627592
 Transform:
   m_ObjectHideFlags: 0
@@ -940,7 +940,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &816695586
 Light:
   m_ObjectHideFlags: 0
@@ -1333,7 +1333,7 @@ MonoBehaviour:
   resetBall: {fileID: 939510816}
   ballResetPosition: {fileID: 1840605732}
   maxThrows: 2
-  forceMultiplier: 10
+  forceMultiplier: 5
 --- !u!135 &939510818
 SphereCollider:
   m_ObjectHideFlags: 0

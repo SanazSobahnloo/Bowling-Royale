@@ -2915,7 +2915,7 @@ MonoBehaviour:
   resetBall: {fileID: 1881797596}
   ballResetPosition: {fileID: 1840605732}
   maxThrows: 2
-  forceMultiplier: 10
+  forceMultiplier: 5
 --- !u!135 &1881797598
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3062,13 +3062,13 @@ LineRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.9848483
+        time: 0.4595958
         value: 0
-        inSlope: -5.12659
-        outSlope: -5.12659
+        inSlope: -3.9806497
+        outSlope: -3.9806497
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.025071153
+        inWeight: 0.083027914
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -3130,7 +3130,7 @@ MonoBehaviour:
   customCamera: {fileID: 659137331}
   ball: {fileID: 1881797601}
   sensitivity: 0.3
-  lineLength: 2
+  lineLength: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
