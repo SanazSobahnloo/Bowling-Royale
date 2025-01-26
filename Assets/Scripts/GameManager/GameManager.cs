@@ -14,9 +14,11 @@ public class GameManager : MonoBehaviour
 
     public void CheckGameResult(int playerScore, int maxScore)
     {
+        int activeSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        PlayerPrefs.SetInt("ActiveSceneIndex", activeSceneIndex);
         if (playerScore >= maxScore)
         {
-            PlayerPrefs.SetInt("Score", playerScore); ;
+            PlayerPrefs.SetInt("Score", playerScore);
             PlayerPrefs.SetString("GameResult", "Strike, great job!");
             PlayerPrefs.Save();
             SceneManager.LoadScene("Results"); // ?? ???? ????? ???

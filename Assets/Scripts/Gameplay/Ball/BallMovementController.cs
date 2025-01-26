@@ -94,7 +94,7 @@ public class BallMovementController : MonoBehaviour
             _rigidbody.AddForce(new Vector3(direction.x, 0, direction.y) * distance * forceMultiplier); // Apply force
 
             currentThrow++;
-
+            FindObjectOfType<ThrowBallIconManager>().ThrowBall();
             StartCoroutine(WaitForBallToStop());
 
             //if (BallMovementController.Instance.ShowCurrentThrow() >= 2)
