@@ -1,0 +1,11 @@
+Model Information:
+* title:	Pickle Rick Multiversus
+* source:	https://sketchfab.com/3d-models/pickle-rick-multiversus-b9c6adb18b204342874e445239e127f1
+* author:	Antouss (https://sketchfab.com/antouss)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Pickle Rick Multiversus" (https://sketchfab.com/3d-models/pickle-rick-multiversus-b9c6adb18b204342874e445239e127f1) by Antouss (https://sketchfab.com/antouss) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
